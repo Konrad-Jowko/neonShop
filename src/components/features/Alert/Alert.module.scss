@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.container {
+  user-select: none;
+  z-index: 0;
+  background: $alert-background;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .alert {
+    background: $alert-modal-background;
+    z-index: 100;
+    padding: 2rem 3rem;
+    @include neon-border($alert-warning-color);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .button{
+      color: $alert-warning-color;
+      @include neon-border(currentColor);
+      padding: 1em;
+      text-align: center;
+      border-radius: 1em;
+      transition: all 1s;
+
+      &:hover {
+        cursor: pointer;
+        color: $alert-accept-color;
+        transform: scale(1.2);
+      }
+    }
+  }
+}

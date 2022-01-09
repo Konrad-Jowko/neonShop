@@ -1,0 +1,51 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: $summary-response-font-family;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: $summary-response-border-width;
+    @include neon-border($summary-response-border-color);
+
+    .info {
+      text-align: center;
+      text-shadow: $summary-response-info-highlight;
+      font-size: $summary-response-info-font-size;
+      padding: 1em;
+    }
+
+    .buttonsContainer {
+      min-height: $summary-response-buttons-container-min-height;
+      width: $summary-response-buttons-container-width;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .button {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $summary-response-button-color;
+        text-align: center;
+        padding: 1em;
+        display: block;
+        width: $summary-response-button-width;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

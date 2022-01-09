@@ -1,0 +1,111 @@
+@import '../../../styles/settings.scss';
+
+.logo {
+  text-decoration: none;
+  position: relative;
+  margin: 2rem auto;
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: $logo-font;
+  font-weight: 700;
+  font-size: clamp(10px, calc(10px + 4vw), 20px);
+  width: clamp(150px, calc(150px + 4vw), 600px);
+  height: clamp(150px, calc(150px + 4vw), 600px);
+  color: $color-main;
+  border: currentColor 0.25em solid;
+  border-radius: 50%;
+  text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+  box-shadow: 0 0 2em 0 currentColor,inset 0 0 2em 0 currentColor;
+  transition: all 100ms linear;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+
+
+  &::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(10em) rotateX(40deg) scale(1, 0.5);
+    filter: blur(3em);
+    opacity: .7;
+    transition: all 100ms linear;
+  }
+
+  &::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 2em 0.5em currentColor, inset 0 0 3em 0.5em currentColor;
+    opacity: 0;
+    transition: all 100ms linear;
+  }
+
+  &:hover, {
+    cursor: pointer;
+    text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em currentColor;
+    box-shadow: 0 0 3em 0 currentColor,inset 0 0 3em 0 currentColor;
+
+    &::before {
+      filter: blur(3em);
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+
+    .upperText .flicker {
+      animation: none;
+    }
+  }
+
+
+  .middleText {
+      font-size: clamp(15px, calc(15px + 4vw), 50px);
+  }
+
+  .upperText, .lowerText {
+    font-size: clamp(25px, calc(25px + 4vw), 60px);
+
+    .flicker {
+      font-style: normal;
+      animation: flicker 3s linear infinite;
+    }
+
+  }
+}
+
+
+[class~='violet'] {color: $logo-color-violet;}
+[class~='ultramarine'] {color: $logo-color-ultramarine;}
+[class~='yellow'] {color: $logo-color-yellow;}
+[class~='orange'] {color: $logo-color-orange;}
+[class~='red'] {color: $logo-color-red;}
+[class~='green']{color: $logo-color-green;}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		opacity: .99;
+		text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+		text-shadow: none;
+	}
+}

@@ -1,0 +1,15 @@
+@import '../../../styles/settings.scss';
+
+.widget {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: inherit;
+  @include neon-border($widget-color);
+
+  .subtraction, .addition {
+    cursor: pointer;
+  }
+}

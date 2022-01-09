@@ -1,0 +1,158 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  margin: 0 auto;
+  font-family: $product-font-family;
+  z-index: 1;
+
+  .header {
+    @include header;
+  }
+
+  .shortDescription {
+    text-align: center;
+    font-size: $product-description-font-size;
+    margin: 1em;
+  }
+
+  .detailsContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .carouselContainer{
+      margin: 1em;
+      border-radius: 1em;
+      @include neon-border($product-carousel-border-color);
+
+      .carousel {
+        width: $product-carousel-dimensions;
+        height: $product-carousel-dimensions;
+        margin: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & * {
+          width: $product-carousel-dimensions;
+          height: $product-carousel-dimensions;
+        }
+      }
+    }
+
+    .options {
+      margin: 1em;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      align-items: center;
+      width: $product-options-container-width;
+
+      .selectContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        width: $product-select-container-width;
+        min-height: $product-select-container-min-heigth;
+
+        p {
+          text-align: center;
+          text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+
+          .singleColorHighlight {
+            display: block;
+            padding: 1em;
+            font-size: $product-single-color-font-size;
+            color: $product-single-color-highlight;
+          }
+        }
+      }
+    }
+
+    .customerDescription {
+      width: $product-customer-description-width;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+
+      h3 {
+        text-align: center;
+        padding: 1em;
+        margin: 1em;
+      }
+
+      textarea {
+        height: $product-customer-description-height;
+        resize: none;
+        background: none;
+        outline: none;
+        @include neon-border($product-customer-standard-description-border-color);
+        color: $product-customer-description-color;
+        padding: 1em;
+      }
+
+      textarea[class*='danger'] {
+        @include neon-border($product-customer-warning-description-border-color);
+      }
+    }
+
+    .pricing {
+      padding: 1em;
+      margin: 1em;
+      text-align: center;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      .initialPrice {
+        text-align: center;
+        margin: 2em;
+        font-size: $product-initial-price-font-size;
+
+        span {
+          @include highlight($product-price-highlight-color);
+        }
+
+        span[class*='danger'] {
+          color: $product-price-warning-highlight-color;
+
+          & ~ span {
+            color: $product-price-warning-highlight-color;
+          }
+        }
+      }
+
+      .order {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        .widgetContainer {
+          width: $product-widget-width;
+          height: $product-widget-height;
+          font-size: $product-widget-font-size;
+        }
+
+        .orderButton {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: $product-order-button-font-size;
+          height: 2em;
+          color: $product-order-button-color;
+          padding: 1.5em .5em;
+          margin: 2em;
+          @include neon-border(currentColor);
+          border-width: 0.2em;
+
+          &:hover {
+            cursor: pointer;
+            transition: all 100ms linear;
+          }
+        }
+      }
+    }
+  }
+}

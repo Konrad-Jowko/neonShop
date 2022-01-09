@@ -1,0 +1,177 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: $summary-font-family;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: $summary-container-width;
+    border-radius: 1em;
+    @include neon-border($summary-container-border-color);
+
+    .totalPriceText {
+      font-size: $summary-total-price-font-size;
+      padding: .5em;
+
+      span[id='totalPrice'] {
+        @include highlight($summary-total-price-highlight-color);
+      }
+    }
+
+    .subContainer {
+      padding: 1em;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      .subContainerHeader {
+        text-align: center;
+        font-size: $summary-subcontainer-header-font-size;
+      }
+
+      .singleElementContainer {
+          flex: 1;
+          width: $summary-single-item-container-border-width;
+          @include neon-border($summary-single-item-container-border-color);
+          margin: .5em;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+
+          .singleElementHeader {
+            text-align: center;
+            font-size: $summary-single-element-header-font-size;
+            text-shadow: $summary-single-element-header-highlight;
+          }
+
+        .singleElementSubcontainer {
+          margin: .2em;
+          width: $summary-single-element-subcontainer-width;
+          text-align: center;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+
+
+          .singleElementInfo {
+            margin: 1em;
+            flex: 1;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 1em;
+            @include neon-border($summary-single-info-border-color);
+
+            h4 {
+              text-shadow: $summary-single-info-header-highlight;
+              font-size: $summary-single-info-header-font-size;
+              margin: $summary-single-info-header-margin;
+              border-bottom: .1em currentColor solid;
+            }
+
+            span, h3 {
+              margin: 0;
+              padding: 0;
+              font-size: $summary-single-info-description-font-size;
+            }
+
+            input {
+              width: $summary-input-width;
+              resize: none;
+              background: none;
+              outline: none;
+              @include neon-border($summary-input-border-color);
+              color: $summary-input-color;
+              padding: 1em;
+              font-size: $summary-input-font-size;
+
+              &:focus {
+                color: white;
+                @include neon-border($summary-focus-input-border-color);
+              }
+
+              &:hover {
+                @include neon-border($summary-focus-input-border-color);
+              }
+            }
+
+            input[class*='warning']{
+              color: $summary-warning-input-border-color;
+              @include neon-border(currentColor);
+            }
+
+          }
+        }
+
+        .descriptionContainer {
+          width: $summary-description-container-width;
+          margin: 1em;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+
+          h3 {
+            font-size: $summary-description-h3-font-size;
+            text-align: center;
+            border-bottom: 2px currentColor solid;
+          }
+
+          .description {
+            text-align: justify;
+            width: 100%;
+            @include neon-border($summary-description-border-color);
+            padding: 1em;
+            font-size: $summary-description-font-size;
+          }
+        }
+      }
+    }
+
+    .buttonsContainer {
+      min-height: $summary-buttons-container-min-height;
+      width: $summary-buttons-container-width;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .navlink {
+        text-decoration: none;
+      }
+
+      div, .button {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $summary-buttons-color;
+        text-align: center;
+        padding: 1em;
+        display: block;
+        width: $summary-buttons-width;
+        @include neon-border(currentColor);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .buttonClear {
+        color: $summary-buttons-warning-color;
+      }
+
+      div[class*='disabled'] {
+        display: none;
+      }
+    }
+  }
+}

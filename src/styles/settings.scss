@@ -1,0 +1,275 @@
+@import './normalize.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;600&display=swap');
+
+/* SETTING BORDER BOX FOR ALL ELEMENTS */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* FONTS AND FONT SIZES */
+$decorative-font: 'Dancing Script', cursive;
+$option-font: 'Bebas Neue', cursive;
+$text-font: 'M PLUS 2', sans-serif;
+
+$base-size: 12px;
+
+/* COLORS */
+$color-main: #FF00C1;
+$color-violet: #8C00FC;
+$color-ultramarine: #3500FF;
+$color-yellow: #FFFE37;
+$color-orange: #FF8600;
+$color-red: #ED0003;
+$color-green: #01FE01;
+$color-white: #ffffff;
+$color-black: #000000;
+
+$logo-color: #FF00C1;
+$logo-violet: #8C00FC;
+$logo-ultramarine: #3500FF;
+$logo-yellow: #FFFE37;
+$logo-orange: #FF8600;
+$logo-red: #ED0003;
+$logo-green: #01FE01;
+$option-unlit: #978DAA;
+
+/* COMPONENTS SETTINGS */
+// Header settings
+$header-font-family: $option-font;
+$header-font-size: clamp(15px, calc(15px + .5vw), 35px);
+
+// Logo settings
+$logo-font: $decorative-font;
+$logo-color-violet: $color-violet;
+$logo-color-ultramarine: $color-ultramarine;
+$logo-color-yellow: $color-yellow;
+$logo-color-orange: $color-orange;
+$logo-color-red: $color-red;
+$logo-color-green: $color-green;
+
+// Amount Widget settings
+$widget-color: $color-white;
+
+// Alert settings
+$alert-warning-color: $color-red;
+$alert-accept-color: $logo-ultramarine;
+$alert-modal-background: rgba(0, 0, 0, 0.8);
+$alert-background: rgba(0, 0, 0, 0.6);
+
+// Select settings
+$select-color: $color-ultramarine;
+$select-font-size: clamp(.75rem, calc(.75rem + 1vw), 1.25rem);
+$select-width: clamp(70px, calc(70px + 10vw), 200px);
+$select-danger-color: $color-red;
+
+// Homepage settings
+$homepage-font-family: $text-font;
+$homepage-highlight-color: $color-main;
+$homepage-body-font-size: clamp(15px, calc(15px + .5vw), 40px);
+$homepage-list-border-color: $color-ultramarine;
+$homepage-list-h2-color: $color-white;
+$homepage-h2-font-size: clamp(20px, calc(20px + .5vw), 42px);
+$homepage-list-container-width: clamp(240px, calc(240px + 5vw), 800px);
+$homepage-list-container-height: clamp(240px, calc(240px + 5vw), 800px);
+$homepage-list-image-tint: $color-black;
+$homepage-list-image-h2-font-size: clamp(16px, calc(16px + .4vw), 30px);
+
+//About settings
+$about-font-family: $text-font;
+$about-border-color: $color-ultramarine;
+$about-highlight-color: $color-main;
+$about-member-min-height: clamp(900px, calc(900px + 60vw), 840px);
+$about-member-border-color: $color-ultramarine;
+$about-member-h2-fontsize: clamp(30px, calc(30px + 1vw), 45px);
+$about-image-border-color: $color-green;
+$about-image-width: calc(max(75%, 250px));
+$about-member-speciality-font-size: clamp(20px, calc(20px + 1vw), 30px);
+$about-member-bio-font-size: clamp(14px, calc(14px + .5vw), 28px);
+$about-contact-width: calc(max(80%, 300px));
+$about-contact-font-size: clamp(15px, calc(15px + 1vw), 45px);
+$about-contact-decal-color: $color-ultramarine;
+$about-contact-highlight-color: $color-green;
+
+// Cart settings
+$cart-font-family: $text-font;
+$cart-disclaimer-font-size: clamp(12px, calc(12px + .3vw), 28px);
+$cart-container-border-color: $color-main;
+$cart-container-width: calc(max(300px, 80%));
+$cart-total-price-font-size: clamp(16px, calc(16px + 1vw), 30px);
+$cart-total-price-color: $color-main;
+$cart-single-product-width: calc(max(270px, 95%));
+$cart-single-product-header-font-size: clamp(28px, calc(28px + 1vw), 50px);
+$cart-single-product-border-color: $color-ultramarine;
+$cart-single-product-info-header-font-size: clamp(14px, calc(14px + .4vw), 30px);
+$cart-single-product-info-font-size: clamp(15px, calc(15px + .4vw), 30px);
+$cart-single-product-description-width: 80%;
+$cart-single-product-description-font-size: clamp(14px, calc(14px + .2vw), 30px);
+$cart-single-product-description-header-font-size: clamp(16px, calc(16px + .4vw), 34px);
+$cart-single-product-inactive-description-border-color: $color-ultramarine;
+$cart-single-product-inactive-description-color: hsla(0, 0%, 100%, .8);
+$cart-single-product-active-description-color: $color-white;
+$cart-single-product-active-description-border-color: $color-green;
+$cart-buttons-container-width: calc(max(300px, 80%));
+$cart-buttons-container-min-height: 200px;
+$cart-button-width: clamp(200px, calc(180px + 5vw), 300px);
+$cart-standard-button-color: $color-ultramarine;
+$cart-warning-button-color: $color-red;
+
+// Cart Update settings
+$update-font-family: $text-font;
+$update-width: calc(max(300px, 50%));
+$update-border-color: $color-main;
+$update-font-size: clamp(20px, calc(20px + 1vw), 30px);
+$update-button-container-width: 90%;
+$update-button-container-min-height: 150px;
+$update-standard-button-color: $color-ultramarine;
+
+// Not Found settings
+$not-found-font-family: $text-font;
+$not-found-border-color: $color-main;
+$not-found-width: calc(max(300px, 50%));
+$not-found-font-size: clamp(20px, calc(20px + 1vw), 30px);
+$not-found-button-container-min-height: 150px;
+$not-found-button-container-width: 90%;
+$not-found-standard-button-color: $color-ultramarine;
+
+// Product settings
+$product-font-family: $text-font;
+$product-description-font-size: clamp(16px, calc(16px + 1vw), 32px);
+$product-carousel-border-color: $color-main;
+$product-carousel-dimensions: clamp(130px, calc(130px + 20vw), 900px);
+$product-options-container-width: calc(min(80vw, 1000px));
+$product-select-container-width: calc(max(200px, 25%));
+$product-select-container-min-heigth: clamp(100px, calc(100px + 10vw), 170px);
+$product-single-color-font-size: clamp(1em, calc(1em + .5vw), 1.3em);
+$product-single-color-highlight: $color-main;
+$product-customer-description-width: calc(min(90%, 1000px));
+$product-customer-description-height: 500px;
+$product-customer-standard-description-border-color: $color-main;
+$product-customer-description-color: $color-white;
+$product-customer-warning-description-border-color: $color-red;
+$product-initial-price-font-size: 20px;
+$product-price-highlight-color: $color-orange;
+$product-price-warning-highlight-color: $color-red;
+$product-widget-width: 150px;
+$product-widget-height: 100px;
+$product-widget-font-size: 20px;
+$product-order-button-color: $color-ultramarine;
+$product-order-button-font-size: clamp(16px, calc(16px + .3vw), 20px);
+
+// Products settings
+$products-font-family: $text-font;
+$products-border-color: $color-green;
+$products-padding: clamp(1em, calc(1em + 1vw), 2em);
+$products-min-height: 400px;
+$products-width: calc(max(300px, 45%));
+$products-margin: clamp(.4em, calc(.4em + 1vw), 2em);
+$products-title-hover-highlight: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em currentColor;
+$products-button-hover-highlight: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+$products-title-font-size: clamp(20px, calc(20px + .5vw), 42px);
+$products-title-color: $color-green;
+$products-description-font-size: clamp(18px, calc(18px + .4vw), 34px);
+$products-description-highlight-color: $color-green;
+$products-button-font-size: clamp(18px, calc(18px + .3vw), 24px);
+$products-button-color: $logo-ultramarine;
+$products-button-width: 50%;
+$products-single-container-dimensions: clamp(220px, calc(220px + 15vw), 900px);
+$products-single-container-padding: clamp(.3em, calc(.5em + 1vw), 2em);
+$products-single-container-border-color: $color-green;
+$products-single-container-background: $color-black;
+$products-subtitle-color: $color-main;
+$products-subtitle-font-size: clamp(20px, calc(20px + 1vw), 52px);
+$products-description-font-size: clamp(14px, calc(14px + 1vw), 42px);
+$products-single-color-highlight: $color-green;
+$products-button-container-width: 70%;
+$products-button-color: $color-ultramarine;
+
+// Summary settings
+$summary-font-family: $text-font;
+$summary-container-width: calc(max(300px, 80%));
+$summary-container-border-color: $color-main;
+$summary-total-price-font-size: clamp(14px, calc(14px + 1vw), 24px);
+$summary-total-price-highlight-color: $color-main;
+$summary-subcontainer-header-font-size: clamp(25px, calc(25px + 1vw), 40px);
+$summary-single-item-container-border-color: $color-main;
+$summary-single-item-container-border-width: calc(max(270px, 95%));
+$summary-single-element-header-font-size: clamp(20px, calc(20px + 1vw), 35px);
+$summary-single-element-header-highlight: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+$summary-single-element-subcontainer-width: 85%;
+$summary-single-info-border-color: $color-ultramarine;
+$summary-single-info-header-font-size: clamp(10px, calc(10px + .4vw), 25px);
+$summary-single-info-header-margin: clamp(10px, calc(10px + .2vw), 1em);
+$summary-single-info-header-highlight: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+$summary-single-info-header-font-size: clamp(10px, calc(10px + .4vw), 25px);
+$summary-single-info-description-font-size: clamp(8px, calc(8px + .4vw), 20px);
+$summary-input-width: clamp(150px, calc(150px + 1vw), 250px);
+$summary-input-border-color: $color-ultramarine;
+$summary-focus-input-border-color: $color-green;
+$summary-warning-input-border-color: $color-red;
+$summary-input-color: $color-white;
+$summary-input-font-size: clamp(12px, calc(12px + .2vw), 25px);
+$summary-description-container-width: 75%;
+$summary-description-h3-font-size: clamp(12px, calc(12px + .4vw), 28px);
+$summary-description-border-color: $color-ultramarine;
+$summary-description-font-size: clamp(10px, calc(10px + .2vw), 25px);
+$summary-buttons-container-min-height: 200px;
+$summary-buttons-container-width: calc(max(300px, 80%));
+$summary-buttons-color: $color-ultramarine;
+$summary-buttons-warning-color: $color-red;
+$summary-buttons-width: clamp(200px, calc(180px + 5vw), 300px);
+
+// Summary Response settings
+$summary-response-font-family: $text-font;
+$summary-response-border-color: $color-main;
+$summary-response-border-width: calc(max(300px, 50%));
+$summary-response-info-font-size: clamp(20px, calc(20px + 1vw), 30px);
+$summary-response-info-highlight: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+$summary-response-buttons-container-min-height: 150px;
+$summary-response-buttons-container-width: 90%;
+$summary-response-button-color: $color-ultramarine;
+$summary-response-button-width: 200px;
+
+/* MIXINS */
+@mixin neon-style {
+    position: relative;
+    text-align: center;
+    padding: .5em;
+    color: $option-unlit;
+    border-radius: .5em;
+    text-shadow: 0 0 2em black;
+    transition: all 100ms linear;
+
+    &:hover, .active {
+      color: $color-main;
+      cursor: pointer;
+      text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 1em currentColor;
+    }
+}
+
+@mixin neon-border($color) {
+  border: #{$color} 0.25em solid;
+  border-radius: 1em;
+  text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em #{$color};
+  box-shadow: 0 0 2em 0 #{$color},inset 0 0 2em 0 #{$color};
+
+  &:hover, &:focus {
+   text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em #{$color};
+    box-shadow: 0 0 3em 0 #{$color},inset 0 0 3em 0 #{$color};
+  }
+}
+
+@mixin highlight($color) {
+  color: #{$color};
+  text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+
+  &:hover, {
+    text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em currentColor;
+  }
+}
+
+@mixin header {
+  text-align: center;
+  font-size: clamp(32px, calc(32px + 1vw), 60px);
+  text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+}

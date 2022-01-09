@@ -1,0 +1,175 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: $cart-font-family;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: $cart-container-width;
+    @include neon-border($cart-container-border-color);
+
+    p {
+      margin: 1em;
+      text-align: center;
+      text-shadow: none;
+      font-size: $cart-disclaimer-font-size;
+    }
+
+    .totalPriceText {
+      font-size: $cart-total-price-font-size;
+      padding: 1em;
+
+      span[id='totalPrice'] {
+        color: $cart-total-price-color;
+        text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+      }
+    }
+
+    .productsContainer {
+      margin: 1em;
+      padding: 2em 1em;
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      .singleProductContainer {
+          flex: 1;
+          width: $cart-single-product-width;
+          @include neon-border($cart-container-border-color);
+          margin: .5em;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+
+          .singleProductHeader {
+            text-align: center;
+            font-size: $cart-single-product-header-font-size;
+            text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+          }
+
+        .singleProductSubcontainer {
+          margin: .5em;
+          width: 100%;
+          text-align: center;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+
+
+          .singleProductInfo {
+            margin: 1em;
+            flex: 1;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 1em;
+            @include neon-border($cart-single-product-border-color);
+
+
+            h4 {
+              text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+              font-size: $cart-single-product-info-header-font-size;
+              margin: clamp(10px, calc(10px + .2vw), 1em);
+              border-bottom: .1em currentColor solid;
+            }
+
+            span, h3 {
+              margin: 0;
+              padding: 0;
+              font-size: $cart-single-product-info-font-size;
+            }
+
+            .widgetContainer {
+              width: 75px;
+              height: 50px;
+            }
+          }
+        }
+
+        .descriptionContainer {
+          width: $cart-single-product-description-width;
+          margin: 1em;
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+
+          h3 {
+            font-size: $cart-single-product-description-header-font-size;
+            text-align: center;
+            border-bottom: 2px currentColor solid;
+          }
+
+          textarea {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            width: 100%;
+            resize: none;
+            background: none;
+            outline: none;
+            @include neon-border($cart-single-product-inactive-description-border-color);
+            color: $cart-single-product-inactive-description-color;
+            padding: 1em;
+            height: 200px;
+            font-size: $cart-single-product-description-font-size;
+          }
+
+          textarea::-webkit-scrollbar {
+            display: none;
+          }
+
+          textarea[class*='active']{
+            color: $cart-single-product-active-description-color;
+            @include neon-border($cart-single-product-active-description-border-color);
+          }
+        }
+      }
+    }
+
+    .buttonsContainer {
+      min-height: $cart-buttons-container-min-height;
+      width: $cart-buttons-container-width;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .navlink {
+        text-decoration: none;
+      }
+
+      div, .button {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $cart-standard-button-color;
+        text-align: center;
+        padding: 1em;
+        display: block;
+        width: $cart-button-width;
+        @include neon-border(currentColor);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .buttonClear {
+        color: $cart-warning-button-color;
+      }
+
+      div[class*='disabled'] {
+        display: none;
+      }
+    }
+  }
+}

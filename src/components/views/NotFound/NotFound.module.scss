@@ -1,0 +1,54 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: $not-found-font-family;
+  font-weight: 700;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: $not-found-width;
+    @include neon-border($not-found-border-color);
+
+
+    .info {
+      text-align: center;
+      text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+      font-size: $not-found-font-size;
+      padding: 1em;
+    }
+
+    .buttonsContainer {
+      min-height: $not-found-button-container-min-height;
+      width: $not-found-button-container-width;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .button {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $logo-ultramarine;
+        text-align: center;
+        padding: 1em;
+        display: block;
+        width: 200px;
+        @include neon-border($not-found-standard-button-color);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

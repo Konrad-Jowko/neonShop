@@ -1,0 +1,195 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  margin: 0 auto;
+  font-family: $products-font-family;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .subContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: $products-margin;
+    width: $products-width;
+    min-height: $products-min-height;
+    padding: $products-padding;
+    @include neon-border($products-border-color);
+    transition: all 100ms linear;
+
+    &:hover {
+      cursor: pointer;
+
+      .title {
+        text-shadow: $products-title-hover-highlight;
+      }
+
+      .button {
+        text-shadow: $products-button-hover-highlight;
+      }
+    }
+
+    .title {
+        font-size: $products-title-font-size;
+        text-decoration: none;
+        text-align: center;
+        padding: 1em;
+        margin: 1em;
+        color: $products-title-color;
+        text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+        transition: all 100ms linear;
+    }
+
+    .description {
+      display: block;
+      margin: 0 auto;
+      height: 60%;
+      font-size: $products-description-font-size;
+
+      .highlight {
+        color: $products-description-highlight-color;
+        text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+      }
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $products-button-font-size;
+      width: $products-button-width;
+      height: 2em;
+      color: $products-button-color;
+      padding: 1.5em .5em;
+      margin: 2em;
+      @include neon-border(currentColor);
+      border-width: .2em;
+
+      &:hover {
+        cursor: pointer;
+        transition: all 100ms linear;
+      }
+    }
+
+    .itemsContainer{
+      max-height: 0;
+      display: flex;
+      flex-flow: column nowrap;
+      transition: max-height 1s;
+      transform-origin: top;
+      overflow: hidden;
+
+
+      .singleItemContainer {
+        z-index: 0;
+        width: $products-single-container-dimensions;
+        height: $products-single-container-dimensions;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        position: relative;
+        transition: all 100ms linear;
+        padding: $products-single-container-padding;
+        margin: 1em;
+        border: $products-subtitle-color 0.25em solid;
+        border-radius: 15%;
+        box-shadow: 0 0 1em 0 $products-subtitle-color,inset 0 0 1em 0 $products-subtitle-color;
+        transition: all 100ms linear;
+
+
+        &:before {
+          z-index: -1;
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: $products-single-container-background;
+          opacity: .4;
+          border-radius: 15%;
+        }
+
+          img {
+            z-index: -10;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            border-radius: 15%;
+          }
+
+          .subTitle {
+            font-size: $products-subtitle-font-size;
+            text-align: center;
+            padding: .25em;
+            margin: .25em;
+            color: $products-subtitle-color;
+          }
+
+          .itemDescription {
+            font-size: $products-description-font-size;
+          }
+
+          .singularColor, .multiColor {
+            font-size: $products-description-font-size;
+
+            .colorDescription {
+              display: block;
+              margin-top: .5em;
+              color: $products-single-color-highlight;
+              text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+            }
+          }
+
+        .itemButtonContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          width: $products-button-container-width;
+
+          .itemButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: clamp(18px, calc(18px + .3vw), 24px);
+            text-shadow:  0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+            color: $products-button-color;
+            @include neon-border(currentColor);
+            border-width: .2em;
+            padding: .5em;
+
+            &:hover {
+              cursor: pointer;
+              transition: all 100ms linear;
+            }
+          }
+        }
+      }
+    }
+  }
+  .subContainer[class*="active"] .itemsContainer {
+      max-height: 500vh;
+    }
+
+
+
+}

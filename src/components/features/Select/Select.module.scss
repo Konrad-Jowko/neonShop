@@ -1,0 +1,61 @@
+@import '../../../styles/settings.scss';
+
+.select {
+  z-index: 1;
+  color: $select-color;
+  @include neon-border(currentColor);
+  border-width: 0.1em;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  padding: .5em;
+  font-size: $select-font-size;
+  cursor: pointer;
+  line-height: 2;
+  background: none;
+  margin-bottom: 20px;
+  width: $select-width;
+  span {
+    z-index: -1;
+  }
+
+  .selectOptionsContainer {
+    position: absolute;
+    top: 95%;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em currentColor;
+    background: hsla(0, 0, 0, 1);
+    border: currentColor 0em solid;
+    box-shadow: 0 0 2em 0 currentColor,inset 0 0 2em 0 currentColor;
+
+    .option {
+      border-top: currentColor 0.1em solid;
+      height: 40px;
+      width: 100%;
+
+      &:hover {
+        cursor: pointer;
+        text-shadow: 0 0 1em hsla(0, 0%, 100%, 1), 0 0 2em currentColor;
+        box-shadow: 0 0 3em 0 currentColor,inset 0 0 3em 0 currentColor;
+      }
+    }
+  }
+}
+
+.select[class*='active'] {
+  .selectOptionsContainer {
+      max-height: 1000px;
+      border: currentColor .1em solid;
+      border-radius: 5px;
+      transition: all 1s;
+  }
+}
+
+.select[class*='danger'] {
+  color: $select-danger-color;
+}

@@ -1,0 +1,52 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  font-family: $update-font-family;
+  margin: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  .header {
+    @include header;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: $update-width;
+    @include neon-border($update-border-color);
+
+    .question {
+      text-align: center;
+      text-shadow: 0 0 1em hsla(0, 0%, 60%, 1), 0 0 2em currentColor;
+      font-size: $update-font-size;
+      padding: 1em;
+    }
+
+    .buttonsContainer {
+      min-height: $update-button-container-min-height;
+      width: $update-button-container-width;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .button {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $update-standard-button-color;
+        text-align: center;
+        padding: 1em;
+        display: block;
+        width: 200px;
+        @include neon-border(currentColor);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
